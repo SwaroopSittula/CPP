@@ -1,2 +1,8 @@
-# Idea
-.idea/**
+### IntelliJ IDEA ###
+.idea/*
+*.iws
+*.iml
+*.ipr
+
+### Jupyter Checkpoints
+**/.ipynb_checkpoints/
