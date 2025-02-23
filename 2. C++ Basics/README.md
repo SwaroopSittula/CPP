@@ -34,6 +34,7 @@ int main()
 
 </details>
 
+
 <details><summary>
 
 ## Comments
@@ -253,3 +254,69 @@ The process of reserving storage for an object’s use is called **allocation**.
 
 </details>
 
+
+
+<details><summary>
+
+## Instantiation
+
+</summary>
+
+The term **instantiation** is a fancy word that means a variable has been created (allocated) and initialized (this
+includes
+default initialization). An instantiated object is sometimes called an **instance**. Most often, this term is applied to
+class type objects, but it is occasionally applied to objects of other types as well.
+
+</details>
+
+<details><summary>
+
+## Initializing multiple variables
+
+</summary>
+
+```cpp
+int a = 5, b = 6;          // copy-initialization
+int c ( 7 ), d ( 8 );      // direct-initialization
+int e { 9 }, f { 10 };     // direct-list-initialization
+int i {}, j {};            // value-initialization
+```
+
+**Note**: In the below statement, variable a will be left uninitialized, and the compiler may or may not complain.
+
+```cpp
+int a, b = 5;     // wrong: a is not initialized to 5!
+int a = 5, b = 5; // correct: a and b are initialized to 5
+```
+
+</details>
+
+
+<details><summary>
+
+## The [[maybe_unused]] attribute (C++17)
+
+</summary>
+
+[[maybe_unused]] attribute allows us to tell the compiler that we’re okay with a variable being unused.
+The compiler will not generate unused variable warnings for such variables.
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    [[maybe_unused]] double pi { 3.14159 };  // Don't complain if pi is unused
+    [[maybe_unused]] double gravity { 9.8 }; // Don't complain if gravity is unused
+    [[maybe_unused]] double phi { 1.61803 }; // Don't complain if phi is unused
+
+    std::cout << pi << '\n';
+    std::cout << phi << '\n';
+
+    // The compiler will no longer warn about gravity not being used
+
+    return 0;
+}
+```
+
+</details>
